@@ -29,9 +29,9 @@ interface Task {
     </GridLayout>
     
     <StackLayout>
-        <Button *ngFor="#answer of task.answers" 
+        <Button *ngFor="#answer of task.answers; #i = index" 
             [text]="answer" class="answer"
-            (tap)="onAnswer()"></Button>
+            (tap)="onAnswer(i)"></Button>
     </StackLayout>
 
 </StackLayout>
