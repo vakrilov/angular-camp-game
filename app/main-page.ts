@@ -45,12 +45,35 @@ export class MainPage {
     }
 
     private nextTask() {
+        var arg1:number = this.getArg();
+        var arg2:number = this.getArg();
+        var operand:string = this.getOperation();
         this.task = {
-            arg1: this.getArg(),
-            arg2: this.getArg(),
-            operand: this.getOperation(),
-            answers: [5, 10, 15, 20],
+            arg1: arg1,
+            arg2: arg2,
+            operand: operand,
+            answers: [this.getResult(arg1, arg2, operand),
+                      this.getResult(this.getArg(), this.getArg(), operand),
+                      this.getResult(this.getArg(), this.getArg(), operand),
+                      this.getResult(this.getArg(), this.getArg(), operand)],
             rightAnswerIndex: 2
+        }
+    }
+    
+    private getResult(arg1, arg2, operand) {
+        switch(operand) {
+            case '+':
+                return arg1 + arg2;
+                break;
+            case '-':
+                return arg1 - arg2;
+                break;
+            case '*':
+                return arg1 * arg2;
+                break;
+            case '/':
+                return arg1 / arg2;
+                break;
         }
     }
 
